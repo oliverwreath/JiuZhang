@@ -16,7 +16,20 @@ public class ListNode {
     public String toString() {
         return "ListNode{" +
                 "val=" + val +
+                ", next=" + next.toValueString() +
+                '}';
+    }
+
+    public String toLongString() {
+        return "ListNode{" +
+                "val=" + val +
                 ", next=" + next +
+                '}';
+    }
+
+    public String toValueString() {
+        return "ListNode{" +
+                "val=" + val +
                 '}';
     }
 }
