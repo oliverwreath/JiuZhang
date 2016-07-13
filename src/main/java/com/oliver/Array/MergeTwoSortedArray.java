@@ -6,8 +6,8 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by Yanliang Han on 2016/7/13.
  */
-public class MergeSortedArray {
-    private final static Logger logger = LoggerFactory.getLogger(MergeSortedArray.class);
+public class MergeTwoSortedArray {
+    private final static Logger logger = LoggerFactory.getLogger(MergeTwoSortedArray.class);
 
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
