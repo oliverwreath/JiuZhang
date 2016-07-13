@@ -31,6 +31,22 @@ public class ListUtils {
         return dummy.next;
     }
 
+    public static RandomListNode getRandomList(int[] values) {
+        if (values == null) {
+            return null;
+        }
+
+        int len = values.length;
+        RandomListNode dummy = new RandomListNode(0);
+        RandomListNode head = dummy;
+        for (int i = 0; i < len; i++) {
+            head.next = new RandomListNode(values[i]);
+            head = head.next;
+        }
+
+        return dummy.next;
+    }
+
     private static void testListUtils() {
         ListUtils();
     }
