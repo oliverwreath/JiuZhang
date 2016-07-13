@@ -11,29 +11,29 @@ public class MergeTwoSortedArray {
 
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        testMergeSortedArray();
+        testMergeTwoSortedArray();
         logger.info("time taken = {}s", (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    private static void testMergeSortedArray() {
-        int[] result1 = mergeSortedArray(new int[]{1, 2, 3, 4}, new int[]{2, 4, 5, 6});
+    private static void testMergeTwoSortedArray() {
+        int[] result1 = mergeTwoSortedArray(new int[]{1, 2, 3, 4}, new int[]{2, 4, 5, 6});
         logger.info("result1 = {}", result1);
     }
 
-    public static int[] mergeSortedArray(int[] A, int[] B) {
+    public static int[] mergeTwoSortedArray(int[] A, int[] B) {
         if (A == null) {
             return B;
         } else if (B == null) {
             return A;
         }
 
-        int lenA = A.length;
-        int lenB = B.length;
-        int len = lenA + lenB;
+        int m = A.length;
+        int n = B.length;
+        int len = m + n;
         int[] ret = new int[len];
         int i = 0, j = 0, k = 0;
 
-        for (; i < lenA && j < lenB; ) {
+        for (; i < m && j < n; ) {
             if (A[i] < B[j]) {
                 ret[k++] = A[i++];
             } else {
@@ -41,12 +41,12 @@ public class MergeTwoSortedArray {
             }
         }
 
-        if (i < lenA) {
-            while (i < lenA) {
+        if (i < m) {
+            while (i < m) {
                 ret[k++] = A[i++];
             }
-        } else if (j < lenB) {
-            while (j < lenB) {
+        } else if (j < n) {
+            while (j < n) {
                 ret[k++] = B[j++];
             }
         }
