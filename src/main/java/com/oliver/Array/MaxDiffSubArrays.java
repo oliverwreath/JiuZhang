@@ -5,7 +5,9 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.oliver.Array.ArrayUtils.*;
+import static com.oliver.Array.ArrayUtils.intArray2List;
+import static com.oliver.Array.ArrayUtils.maxSubArray;
+import static com.oliver.Array.MinSubArray.minSubArray;
 
 /**
  * Created by Yanliang Han on 2016/7/16.
@@ -24,45 +26,6 @@ public class MaxDiffSubArrays {
         logger.info("result2 = {}", maxDiffSubArrays(new int[]{1, 2, -3, 1}));
         logger.info("result3 = {}", maxDiffSubArrays(new int[]{3, 2, 3, 1, 2}));
         logger.info("result4 = {}", maxDiffSubArrays(new int[]{2, 1, 2, 0, 1}));
-    }
-
-    public static int minSubArray(List<Integer> nums) {
-        if (nums == null || nums.size() < 1) {
-            return 0;
-        }
-
-        int len = nums.size();
-        int[] s = new int[len];
-        s[0] = nums.get(0);
-        for (int i = 1; i < len; i++) {
-            if (s[i - 1] <= 0) {
-                s[i] = s[i - 1] + nums.get(i);
-            } else {
-                s[i] = nums.get(i);
-            }
-        }
-
-        return minInArray(s);
-    }
-
-    public static int maxSubArray(List<Integer> nums) {
-        if (nums == null || nums.size() < 1) {
-            return 0;
-        }
-
-        int len = nums.size();
-        int[] s = new int[len];
-        s[0] = nums.get(0);
-        for (int i = 1; i < len; i++) {
-            if (s[i - 1] >= 0) {
-                s[i] = s[i - 1] + nums.get(i);
-            } else {
-                s[i] = nums.get(i);
-            }
-        }
-
-//        logger.info("s = {}", s);
-        return maxInArray(s);
     }
 
     public static int maxDiffSubArrays(int[] nums) {

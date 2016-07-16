@@ -84,6 +84,45 @@ public class ArrayUtils {
         return max;
     }
 
+    public static int minSubArray(List<Integer> nums) {
+        if (nums == null || nums.size() < 1) {
+            return 0;
+        }
+
+        int len = nums.size();
+        int[] s = new int[len];
+        s[0] = nums.get(0);
+        for (int i = 1; i < len; i++) {
+            if (s[i - 1] <= 0) {
+                s[i] = s[i - 1] + nums.get(i);
+            } else {
+                s[i] = nums.get(i);
+            }
+        }
+
+        return minInArray(s);
+    }
+
+    public static int maxSubArray(List<Integer> nums) {
+        if (nums == null || nums.size() < 1) {
+            return 0;
+        }
+
+        int len = nums.size();
+        int[] s = new int[len];
+        s[0] = nums.get(0);
+        for (int i = 1; i < len; i++) {
+            if (s[i - 1] >= 0) {
+                s[i] = s[i - 1] + nums.get(i);
+            } else {
+                s[i] = nums.get(i);
+            }
+        }
+
+//        logger.info("s = {}", s);
+        return maxInArray(s);
+    }
+
     private static void testArrayUtils() {
         ArrayUtils();
     }
