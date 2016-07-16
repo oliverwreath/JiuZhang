@@ -3,6 +3,8 @@ package com.oliver.Array;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static com.oliver.Array.ArrayUtils.maxInArray;
+
 /**
  * Created by Yanliang Han on 2016/7/14.
  */
@@ -37,18 +39,5 @@ public class MaxSubArray {
 
 //        logger.info("s = {}", s);
         return maxInArray(s);
-    }
-
-    public static int maxInArray(int[] nums) {
-        if (nums == null || nums.length < 1) {
-            return 0;
-        }
-
-        int max = Integer.MIN_VALUE;
-        for (int num : nums) {
-            max = Math.max(max, num);
-        }
-
-        return max;
     }
 }

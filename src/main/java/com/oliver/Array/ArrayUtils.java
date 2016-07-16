@@ -1,5 +1,8 @@
 package com.oliver.Array;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,6 +42,33 @@ public class ArrayUtils {
 
 //        logger.info("nums = {}", nums);
         return;
+    }
+
+    public static List<Integer> intArray2List(int[] nums) {
+        LinkedList<Integer> ret = new LinkedList<Integer>();
+        if (nums == null || nums.length < 1) {
+            return ret;
+        }
+
+        int len = nums.length;
+        for (int num : nums) {
+            ret.add(num);
+        }
+
+        return ret;
+    }
+
+    public static int maxInArray(int[] nums) {
+        if (nums == null || nums.length < 1) {
+            return 0;
+        }
+
+        int max = Integer.MIN_VALUE;
+        for (int num : nums) {
+            max = Math.max(max, num);
+        }
+
+        return max;
     }
 
     private static void testArrayUtils() {

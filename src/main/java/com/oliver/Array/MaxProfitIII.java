@@ -6,6 +6,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static com.oliver.Array.ArrayUtils.maxInArray;
+
 /**
  * Created by Yanliang Han on 2016/7/15.
  */
@@ -40,19 +42,6 @@ public class MaxProfitIII {
         }
 
         return maxProfit;
-    }
-
-    public static int maxInArray(int[] nums) {
-        if (nums == null || nums.length < 1) {
-            return 0;
-        }
-
-        int max = Integer.MIN_VALUE;
-        for (int num : nums) {
-            max = Math.max(max, num);
-        }
-
-        return max;
     }
 
     public static int maxProfit(int[] prices) {

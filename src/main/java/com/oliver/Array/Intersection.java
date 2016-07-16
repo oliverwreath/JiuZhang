@@ -5,6 +5,8 @@ import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static com.oliver.Array.ArrayUtils.intArray2List;
+
 /**
  * Created by Yanliang Han on 2016/7/13.
  */
@@ -50,20 +52,6 @@ public class Intersection {
         int i = 0;
         for (Integer integer : set1) {
             ret[i++] = integer;
-        }
-
-        return ret;
-    }
-
-    public static List<Integer> intArray2List(int[] nums) {
-        LinkedList<Integer> ret = new LinkedList<Integer>();
-        if (nums == null || nums.length < 1) {
-            return ret;
-        }
-
-        int len = nums.length;
-        for (int num : nums) {
-            ret.add(num);
         }
 
         return ret;
