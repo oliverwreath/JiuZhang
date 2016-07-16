@@ -11,23 +11,23 @@ import static com.oliver.Array.ArrayUtils.maxInArray;
 /**
  * Created by Yanliang Han on 2016/7/16.
  */
-public class MaxTwoSubArrays {
-    private final static Logger logger = LoggerFactory.getLogger(MaxTwoSubArrays.class);
+public class MaxSubArrayIII {
+    private final static Logger logger = LoggerFactory.getLogger(MaxSubArrayIII.class);
 
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        testMaxTwoSubArrays();
+        testMaxSubArrayIII();
         logger.info("time taken = {}s", (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    private static void testMaxTwoSubArrays() {
-        logger.info("result1 = {}", maxTwoSubArrays(intArray2List(new int[]{-1, 4, -2})));
-        logger.info("result2 = {}", maxTwoSubArrays(intArray2List(new int[]{1, 3, -1, 2, -1, 2})));
-        logger.info("result3 = {}", maxTwoSubArrays(intArray2List(new int[]{3, 2, 3, 1, 2})));
-        logger.info("result4 = {}", maxTwoSubArrays(intArray2List(new int[]{2, 1, 2, 0, 1})));
+    private static void testMaxSubArrayIII() {
+        logger.info("result1 = {}", maxSubArray(new int[]{-1, 4, -2, 3, -2, 3}, 2));
+        logger.info("result2 = {}", maxSubArray(new int[]{1, 3, -1, 2, -1, 2}, 2));
+        logger.info("result3 = {}", maxSubArray(new int[]{3, 2, 3, 1, 2}, 2));
+        logger.info("result4 = {}", maxSubArray(new int[]{2, 1, 2, 0, 1}, 2));
     }
 
-    public static int maxSubArray(List<Integer> list) {
+    public static int maxSubArrayHelper(List<Integer> list) {
         if (list == null || list.size() < 1) {
             return 0;
         }
@@ -46,15 +46,16 @@ public class MaxTwoSubArrays {
         return maxInArray(s);
     }
 
-    public static int maxTwoSubArrays(List<Integer> nums) {
-        if (nums == null || nums.size() < 1) {
+    public static int maxSubArray(int[] nums, int k) {
+        if (nums == null || nums.length < 1) {
             return 0;
         }
+        List<Integer> list = intArray2List(nums);
 
-        int len = nums.size();
+        int len = list.size();
         int max = Integer.MIN_VALUE;
         for (int i = 1; i < len; i++) {
-            max = Math.max(max, maxSubArray(nums.subList(0, i)) + maxSubArray(nums.subList(i, len)));
+            max = Math.max(max, maxSubArrayHelper(list.subList(0, i)) + maxSubArrayHelper(list.subList(i, len)));
         }
 
         return max;

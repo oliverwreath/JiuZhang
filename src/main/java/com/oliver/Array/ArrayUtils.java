@@ -58,6 +58,19 @@ public class ArrayUtils {
         return ret;
     }
 
+    public static int minInArray(int[] nums) {
+        if (nums == null || nums.length < 1) {
+            return 0;
+        }
+
+        int min = Integer.MAX_VALUE;
+        for (int num : nums) {
+            min = Math.min(min, num);
+        }
+
+        return min;
+    }
+
     public static int maxInArray(int[] nums) {
         if (nums == null || nums.length < 1) {
             return 0;
