@@ -52,20 +52,4 @@ public class MaxProfitII {
 
         return ret;
     }
-
-    public static int maxProfitHelper(boolean gotStock, int profitSoFar, int[] prices, int i) {
-        if (i == prices.length) {
-            return profitSoFar;
-        }
-
-        int maxProfit;
-        if (gotStock) {
-            maxProfit = Math.max(maxProfitHelper(false, profitSoFar + prices[i], prices, i + 1), maxProfitHelper(true, profitSoFar, prices, i + 1));
-        } else {
-            maxProfit = Math.max(maxProfitHelper(false, profitSoFar, prices, i + 1), maxProfitHelper(true, profitSoFar - prices[i], prices, i + 1));
-        }
-
-        logger.info("i = {}, gotStock = {}, profitSoFar = {}, maxProfit = {}", i, gotStock, profitSoFar, maxProfit);
-        return maxProfit;
-    }
 }
